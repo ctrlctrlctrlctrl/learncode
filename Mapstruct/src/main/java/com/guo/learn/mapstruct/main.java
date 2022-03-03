@@ -24,6 +24,7 @@ import java.util.List;
 public class main {
 
     public static void main(String[] args) {
+//      注：关于Pom文件的mapstruct版本和Lombok版本一定要一样，否则会报错
         Order order = new Order();
         order.setId(12345L);
         order.setOrderSn("orderSn");
