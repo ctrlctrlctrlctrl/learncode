@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.guo.learncode.mybatisplua1.mapper.AccountMapper">
+
+    <select id="getAccountList" resultType="com.guo.learncode.mybatisplua1.entity.Account2">
+        SELECT * FROM account
+    </select>
+</mapper>
