@@ -90,4 +90,15 @@ class MyBatisPlua1ApplicationTests {
         System.out.println(df7.format(date));
     }
 
+    @Test
+    public void contextloads5(){
+        Account account = new Account();
+        account.setUsername("ab");
+        account.setPassword("1234");
+        account.setPerms("god");
+        accountMapper.insert(account);
+
+        System.out.println(account.getId());
+    }
+
 }
