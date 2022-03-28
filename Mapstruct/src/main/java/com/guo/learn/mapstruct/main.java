@@ -1,12 +1,16 @@
 package com.guo.learn.mapstruct;
 
 
+import com.guo.learn.mapstruct.covert.FromCovertBasicc;
 import com.guo.learn.mapstruct.covert.OrderCovertBasic;
 import com.guo.learn.mapstruct.covert.UserCovertBasic;
+import com.guo.learn.mapstruct.entiry.From;
 import com.guo.learn.mapstruct.entiry.Order;
 import com.guo.learn.mapstruct.entiry.User;
+import com.guo.learn.mapstruct.param.FromQueryParam;
 import com.guo.learn.mapstruct.param.OrderQueryParam;
 import com.guo.learn.mapstruct.param.OrderQueryParam2;
+import com.guo.learn.mapstruct.vo.FromVo;
 import com.guo.learn.mapstruct.vo.UserVO1;
 import com.guo.learn.mapstruct.vo.UserVO2;
 import org.springframework.beans.BeanUtils;
@@ -25,27 +29,36 @@ public class main {
 
     public static void main(String[] args) {
 //      注：关于Pom文件的mapstruct版本和Lombok版本一定要一样，否则会报错
-        Order order = new Order();
-        order.setId(12345L);
-        order.setOrderSn("orderSn");
-        order.setOrderType(0);
-        order.setReceiverKeyword("keyword");
-        order.setSourceType(1);
-        order.setStatus(2);
-        System.out.println("order原型："+order);
+//        Order order = new Order();
+//        order.setId(12345L);
+//        order.setOrderSn("orderSn");
+//        order.setOrderType(0);
+//        order.setReceiverKeyword("keyword");
+//        order.setSourceType(1);
+//        order.setStatus(2);
+//        System.out.println("order原型："+order);
+//
+//        OrderQueryParam vo1 = OrderCovertBasic.INSTANCE.toVO1(order);
+//        System.out.println("order转换vo1："+vo1);
+//
+//        OrderQueryParam2 vo2 = OrderCovertBasic.INSTANCE.toVO2(order);
+//        System.out.println("order转换vo2："+vo2);
+//
+//        order = OrderCovertBasic.INSTANCE.fromVO1(vo1);
+//        System.out.println("vo1转换order："+order);
+//
+//        order = OrderCovertBasic.INSTANCE.fromVO2(vo2);
+//        System.out.println("vo2转换order："+order);
 
-        OrderQueryParam vo1 = OrderCovertBasic.INSTANCE.toVO1(order);
-        System.out.println("order转换vo1："+vo1);
+        FromQueryParam from = new FromQueryParam();
+        from.setId(1);
+        from.setUsername("xxx");
+        from.setPassword("xzf");
+        From from1 = FromCovertBasicc.INSTANCE.toEntity(from);
+        System.out.println(from1);
 
-        OrderQueryParam2 vo2 = OrderCovertBasic.INSTANCE.toVO2(order);
-        System.out.println("order转换vo2："+vo2);
-
-        order = OrderCovertBasic.INSTANCE.fromVO1(vo1);
-        System.out.println("vo1转换order："+order);
-
-        order = OrderCovertBasic.INSTANCE.fromVO2(vo2);
-        System.out.println("vo2转换order："+order);
-
+        FromVo fromVo = FromCovertBasicc.INSTANCE.toVO(from);
+        System.out.println(fromVo);
 
     }
 
